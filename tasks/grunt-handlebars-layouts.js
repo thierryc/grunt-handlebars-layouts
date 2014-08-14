@@ -1,6 +1,6 @@
 /*
  * Grunt Handlebars-HTML
- * https://github.com/thierryc/grunt-handlebars-html
+ * https://github.com/thierryc/grunt-handlebars-layouts
  *
  * Copyright (c) 2014 Thierry Charbonnel
  * Licensed under the MIT license.

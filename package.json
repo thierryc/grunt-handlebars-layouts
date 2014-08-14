@@ -1,22 +1,22 @@
 {
-  "name" : "grunt-handlebars-html",
+  "name" : "grunt-handlebars-layouts",
   "description" : "Handlebars task to render Dust templates to HTML",
-  "version" : "0.0.1",
-  "homepage" : "https://github.com/thierryc/grunt-handlebars-html",
+  "version" : "0.0.2",
+  "homepage" : "https://github.com/thierryc/grunt-handlebars-layouts",
   "author" : {
     "name" : "Thierry Charbonnel",
-    "email" : "thierry.charbonnel@gmail.com",
+    "email" : "info@autreplanete.com",
     "url" : "http://www.autreplanete.com"
   },
   "repository" : {
     "type" : "git",
-    "url" : "git://github.com/thierryc/grunt-handlebars-html.git"
+    "url" : "git://github.com/thierryc/grunt-handlebars-layouts.git"
   },
   "bugs" : {
-    "url" : "https://github.com/thierryc/grunt-handlebars-html/issues"
+    "url" : "https://github.com/thierryc/grunt-handlebars-layouts/issues"
   },
   "main" : "Gruntfile.js",
-  "bin" : "bin/grunt-handlebars-html",
+  "bin" : "bin/grunt-handlebars-layouts",
   "engines" : {
     "node" : ">= 0.8.0"
   },
