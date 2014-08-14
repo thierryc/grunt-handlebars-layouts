@@ -70,17 +70,14 @@ module.exports = function(grunt) {
         if (partial.indexOf('*') > 0 ) {
           // options is optional
           partials.push.apply(partials, glob.sync(partial, {cwd: opts.basePath}));
-          grunt.log.writeln(partials);
         } else {
           partials.push(partial);
         }
       });
-      grunt.log.writeln(partials);
     }
 
     async.each(partials, function(partial, callback) {
       var partialName = path.basename(partial, path.extname(partial));
-      grunt.log.writeln(partialName, partial);
       handlebars.registerPartial(partialName, grunt.file.read(opts.basePath + partial));
     }, done);
 
