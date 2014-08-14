@@ -1,7 +1,7 @@
 {
   "name" : "grunt-handlebars-layouts",
-  "description" : "Handlebars task to render Dust templates to HTML",
-  "version" : "0.0.2",
+  "description" : "Handlebars task to render Handlebars templates to HTML",
+  "version" : "0.0.3",
   "homepage" : "https://github.com/thierryc/grunt-handlebars-layouts",
   "author" : {
     "name" : "Thierry Charbonnel",

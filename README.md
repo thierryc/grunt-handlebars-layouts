@@ -13,7 +13,7 @@ To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](ht
 
 ## About
 
-This task renders Dust templates against a context to produce HTML.
+This task renders Handlebars templates against a context to produce HTML.
 
 Inspired by [grunt-dust-html](https://github.com/ehynds/grunt-dust-html)
 
