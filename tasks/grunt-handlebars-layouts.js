@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   var chalk = require('chalk');
   var glob = require("glob");
 
-  grunt.registerMultiTask("handlebarshtml", "Render Dust templates against a context to produce HTML", function() {
+  grunt.registerMultiTask("handlebarslayouts", "Render Dust templates against a context to produce HTML", function() {
     var handlebars;
     var done = this.async();
     var partials = [];

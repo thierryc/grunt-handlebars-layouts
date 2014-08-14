@@ -46,7 +46,7 @@ An example configuration looks like this:
 
 ```js
   grunt.initConfig({
-    handlebarshtml: {
+    handlebarslayouts: {
       home: {
         files: {
           "dist/home.html": "src/home.html"
@@ -67,7 +67,7 @@ An example configuration looks like this:
       }
     }
   });
-  grunt.registerTask("default", ["handlebarshtml"]);
+  grunt.registerTask("default", ["handlebarslayouts"]);
 ```
 
 ### Optional Configuration Properties

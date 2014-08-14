@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   grunt.loadTasks("../tasks");
 
   grunt.initConfig({
-    handlebarshtml: {
+    handlebarslayouts: {
       home: {
         files: {
           "dist/home.html": "src/home.html"
@@ -27,5 +27,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask("default", ["handlebarshtml"]);
+  grunt.registerTask("default", ["handlebarslayouts"]);
 };
