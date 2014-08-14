@@ -1,4 +1,4 @@
-# grunt handlebars html
+# grunt handlebars layouts
 =======================
 
 ! ALPHA release
@@ -40,6 +40,12 @@ Lastly, add the configuration settings (see below) to your grunt file.
 ## Documentation
 
 This task has two required properties, `src` and `dest`. `src` is the path to your source file and `dest` is the file this task will write to (relative to the grunt.js file). If this file already exists **it will be overwritten**.
+
+```js
+  files: {
+    "dest.html": "src.html"
+  },
+```
 
 An example configuration looks like this:
 
