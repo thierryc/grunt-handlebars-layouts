@@ -77,7 +77,6 @@ This plugin can be customized by specifying the following options:
 * `layout`: layout file is optional.
 * `partials`: partials files.
 * `basePath`: The base location to all your templates so that includes/partials can be resolved correctly.
-* `defaultExt`: The default template extension. Defaults to `.hbs`.
 * `context`: A JavaScript object to render the template against. This option supports a few different types:
 
 **String**: the location to a file containing valid JSON:
@@ -102,6 +101,30 @@ context: [
   "path/to/another/context.json",
   { more: "data" }
 ]
+```
+
+### template 
+
+```html
+{{#extend "layout"}}
+    {{#append "head"}}
+      <link rel="stylesheet" href="assets/css/home.css" />
+    {{/append}}
+
+    {{#replace "body"}}
+      <h2>Welcome Home</h2>
+
+      <ul>
+        {{#items}}
+          <li>{{.}}</li>
+        {{/items}}
+      </ul>
+    {{/replace}}
+
+    {{#prepend "footer"}}
+      <script src="assets/js/analytics.js"></script>
+    {{/prepend}}
+{{/extend}}
 ```
 
 ### FAQ
