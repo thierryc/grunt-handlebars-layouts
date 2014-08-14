@@ -15,8 +15,7 @@ To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](ht
 
 This task renders Handlebars templates against a context to produce HTML.
 
-Inspired by [grunt-dust-html](https://github.com/ehynds/grunt-dust-html)
-
+Inspired by [grunt-dust-html](https://github.com/ehynds/grunt-dust-html) and [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
