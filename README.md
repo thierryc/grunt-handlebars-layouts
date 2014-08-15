@@ -108,7 +108,7 @@ context: [
 ]
 ```
 
-### template 
+### template example
 
 ```html
 {{#extend "layout"}}
@@ -130,6 +130,56 @@ context: [
       <script src="assets/js/analytics.js"></script>
     {{/prepend}}
 {{/extend}}
+```
+
+### layout example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {{#block "head"}}
+          <title>{{title}}</title>
+          <meta name="description" content="">
+    {{/block}}
+  </head>
+
+  <body>
+    <div class="site">
+      <div class="site-hd" role="banner">
+        {{#block "header"}}
+            <h1>{{title}}</h1>
+        {{/block}}
+      </div>
+
+      <div class="site-bd" role="main">
+        {{#block "body"}}
+            <h2>Hello World</h2>
+        {{/block}}
+      </div>
+
+      <div class="site-ft" role="contentinfo">
+        {{#block "footer"}}
+            <small>&copy; 2013</small>
+        {{/block}}
+      </div>
+    </div>
+
+    {{#block "footer"}}
+      <p>footer</p>
+    {{/block}}
+  
+    {{> footer}}
+  </body>
+</html>
+```
+
+### partial example
+
+```html
+<footer>footer</footer>
 ```
 
 ### FAQ
