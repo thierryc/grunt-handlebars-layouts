@@ -3,13 +3,16 @@ grunt handlebars layouts
 
 Handlebars helpers which implement Jade-like layout blocks.
 
-ALPHA release
+* Extend: extend layout (partial)
+* Append
+* Replace
+* Prepend
 
 A grunt.js task to render Handlebars templates against a context &amp; produce HTML
 
-[Handlebars templates](http://handlebarsjs.com)
+* [Handlebars templates](http://handlebarsjs.com)
 
-[Mustache](http://mustache.github.io)
+* [Mustache](http://mustache.github.io)
 
 To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)
 
@@ -45,7 +48,7 @@ This task has two required properties, `src` and `dest`. `src` is the path to yo
 
 ```js
   files: {
-    "dest.html": "src.html"
+    'dest.html': 'src.html'
   },
 ```
 
@@ -184,7 +187,7 @@ context: [
 
 ### Release History and Roadmap
 
- * 2014-08-??   v0.1.0   Frist Release.
+ * 2014-08-??   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
 
 ### FAQ
