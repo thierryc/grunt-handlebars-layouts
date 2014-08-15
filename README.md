@@ -80,7 +80,6 @@ An example configuration looks like this:
 
 This plugin can be customized by specifying the following options:
 
-* `layout`: layout file is optional.
 * `partials`: partials files.
 * `basePath`: The base location to all your templates so that includes/partials can be resolved correctly.
 * `context`: A JavaScript object to render the template against. This option supports a few different types:
