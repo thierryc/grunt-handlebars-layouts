@@ -7,24 +7,24 @@
  */
 
 module.exports = function(grunt) {
-  "use strict";
+  'use strict';
 
-  var path = require("path");
-  var fs = require("fs");
-  var _ = require("lodash");
-  var async = require("async");
+  var path = require('path');
+  var fs = require('fs');
+  var _ = require('lodash');
+  var async = require('async');
   var chalk = require('chalk');
-  var glob = require("glob");
+  var glob = require('glob');
 
-  grunt.registerMultiTask("handlebarslayouts", "Render Handlebars templates against a context to produce HTML", function() {
+  grunt.registerMultiTask('handlebarslayouts', 'Render Handlebars templates against a context to produce HTML', function() {
     var handlebars;
     var done = this.async();
     var partials = [];
     var opts = this.options({
-      basePath: ".",
-      defaultExt: ".hbs",
+      basePath: '',
+      defaultExt: '.hbs',
       whitespace: false,
-      module: "handlebars",
+      module: 'handlebars',
       context: {},
       partials: []
     });
@@ -33,15 +33,15 @@ module.exports = function(grunt) {
     try {
       handlebars = require(opts.module);
     } catch(err) {
-      grunt.fail.fatal("Unable to find the " + opts.module + " dependency. Did you npm install it?");
+      grunt.fail.fatal('Unable to find the ' + opts.module + ' dependency. Did you npm install it?');
     }
 
     // Load includes/partials from the filesystem properly
     handlebars.onLoad = function(filePath, callback) {
 
-      fs.readFile(filePath, "utf8", function(err, html) {
+      fs.readFile(filePath, 'utf8', function(err, html) {
         if(err) {
-          grunt.warn("Template " + err.path + " does not exist");
+          grunt.warn('Template ' + err.path + ' does not exist');
           return callback(err);
         }
 
@@ -61,7 +61,6 @@ module.exports = function(grunt) {
     if (typeof opts.partials === 'string') {
       opts.partials = [opts.partials];
     }
-    opts.partials.push(opts.layout);
     opts.partials.push(opts.partials);
 
     if (opts.partials.length > 0) {
@@ -180,7 +179,7 @@ module.exports = function(grunt) {
         }
 
         // if context is a string assume it's the location to a file
-        if (typeof opts.context === "string") {
+        if (typeof opts.context === 'string') {
           context = grunt.file.readJSON(opts.context);
 
         // if context is an array merge each item together
@@ -188,7 +187,7 @@ module.exports = function(grunt) {
           context = {};
 
           opts.context.forEach(function(obj) {
-            if(typeof obj === "string") {
+            if(typeof obj === 'string') {
               obj = grunt.file.readJSON(obj);
             }
 
@@ -207,7 +206,7 @@ module.exports = function(grunt) {
   });
 
   function parseError(err, filePath) {
-    grunt.fatal("Error parsing handlebars template: " + err + " " + filePath);
+    grunt.fatal('Error parsing handlebars template: ' + err + ' ' + filePath);
   }
   
 

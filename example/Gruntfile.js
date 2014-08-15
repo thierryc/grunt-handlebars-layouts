@@ -1,25 +1,24 @@
 /*global module:false*/
 module.exports = function(grunt) {
-  "use strict";
+  'use strict';
 
-  grunt.loadTasks("../tasks");
+  grunt.loadTasks('../tasks');
 
   grunt.initConfig({
     handlebarslayouts: {
       home: {
         files: {
-          "dist/home.html": "src/home.html"
+          'dist/home.html': 'src/home.html'
         },
         options: {
-          basePath: "src/",
-          partials: "partials/*.hbs",
-          layout: "layout.html",
+          basePath: 'src/',
+          partials: ['partials/*.hbs', 'layout.html'],
           context: {
-            title: "Layout Test",
+            title: 'Layout Test',
             items: [
-              "apple",
-              "orange",
-              "banana"
+              'apple',
+              'orange',
+              'banana'
             ]
           }
         }
@@ -27,5 +26,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask("default", ["handlebarslayouts"]);
+  grunt.registerTask('default', ['handlebarslayouts']);
 };

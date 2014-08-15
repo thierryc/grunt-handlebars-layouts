@@ -1,7 +1,9 @@
-# grunt handlebars layouts
-=======================
+grunt handlebars layouts
+========================
 
-! ALPHA release
+Handlebars helpers which implement Jade-like layout blocks.
+
+ALPHA release
 
 A grunt.js task to render Handlebars templates against a context &amp; produce HTML
 
@@ -54,25 +56,24 @@ An example configuration looks like this:
     handlebarslayouts: {
       home: {
         files: {
-          "dist/home.html": "src/home.html"
+          'dist/home.html': 'src/home.html'
         },
         options: {
-          basePath: "src/",
-          partials: "partials/*.hbs",
-          layout: "layout.html",
+          basePath: 'src/',
+          partials: ['partials/*.hbs', 'layout.html'],
           context: {
-            title: "Layout Test",
+            title: 'Layout Test',
             items: [
-              "apple",
-              "orange",
-              "banana"
+              'apple',
+              'orange',
+              'banana'
             ]
           }
         }
       }
     }
   });
-  grunt.registerTask("default", ["handlebarslayouts"]);
+  grunt.registerTask('default', ['handlebarslayouts']);
 ```
 
 ### Optional Configuration Properties
@@ -87,14 +88,14 @@ This plugin can be customized by specifying the following options:
 **String**: the location to a file containing valid JSON:
 
 ```js
-context: "/path/to/file.json"
+context: '/path/to/file.json'
 ```
 
 **Object**: a regular ol' JavaScript object:
 
 ```js
 context: {
-  pageTitle: "My Awesome Website"
+  pageTitle: 'My Awesome Website'
 }
 ```
 
@@ -102,9 +103,9 @@ context: {
     
 ```js
 context: [
-  "path/to/context.json",
-  "path/to/another/context.json",
-  { more: "data" }
+  'path/to/context.json',
+  'path/to/another/context.json',
+  { more: 'data' }
 ]
 ```
 
@@ -162,7 +163,7 @@ context: [
 
       <div class="site-ft" role="contentinfo">
         {{#block "footer"}}
-            <small>&copy; 2013</small>
+            <small>&copy; 2014</small>
         {{/block}}
       </div>
     </div>
