@@ -86,6 +86,8 @@ This plugin can be customized by specifying the following options:
 * `partials`: partials files.
 * `basePath`: The base location to all your templates so that includes/partials can be resolved correctly.
 * `context`: A JavaScript object to render the template against. This option supports a few different types:
+* `modules`: add your customs handlebars helpers (TODO: add npm module too)
+
 
 **String**: the location to a file containing valid JSON:
 
@@ -111,7 +113,7 @@ context: [
 ]
 ```
 
-### template example
+### Template example
 
 ```html
 {{#extend "layout"}}
@@ -135,7 +137,7 @@ context: [
 {{/extend}}
 ```
 
-### layout example
+### Layout example
 
 ```html
 <!DOCTYPE html>
@@ -179,7 +181,7 @@ context: [
 </html>
 ```
 
-### partial example
+### Partial example
 
 ```html
 <footer>footer</footer>
@@ -189,10 +191,6 @@ context: [
 
  * 2014-08-??   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
-
-### FAQ
-
-1. soon
 
 ## License
 

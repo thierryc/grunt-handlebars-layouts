@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         options: {
           basePath: 'src/',
           partials: ['partials/*.hbs', 'layout.html'],
+          modules: 'helpers/helpers-*.js',
           context: {
             title: 'Layout Test',
             items: [

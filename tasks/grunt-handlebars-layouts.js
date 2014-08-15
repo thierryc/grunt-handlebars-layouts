@@ -20,20 +20,21 @@ module.exports = function(grunt) {
     var handlebars;
     var done = this.async();
     var partials = [];
+    var modules = [];
     var opts = this.options({
       basePath: '',
       defaultExt: '.hbs',
       whitespace: false,
-      module: 'handlebars',
+      modules: [],
       context: {},
       partials: []
     });
-
+    
     // Require handlebars
     try {
-      handlebars = require(opts.module);
+      handlebars = require('handlebars');
     } catch(err) {
-      grunt.fail.fatal('Unable to find the ' + opts.module + ' dependency. Did you npm install it?');
+      grunt.fail.fatal('Unable to find the Handlebars dependency. Did you npm install it?');
     }
 
     // Load includes/partials from the filesystem properly
@@ -54,6 +55,35 @@ module.exports = function(grunt) {
 
     };
 
+    
+    if (typeof opts.modules === 'string') {
+      opts.modules = [opts.modules];
+    }
+    
+    
+    if (opts.modules.length > 0) {
+      opts.modules.forEach(function(module){
+        module = String(module);
+        if (module.indexOf('*') > 0 ) {
+          modules.push.apply(modules, glob.sync(module, {cwd: opts.basePath}));
+        } else {
+          modules.push(module);
+        }
+      });
+      
+      modules.forEach(function(module){
+        // Require modules
+        var mod;
+        try {
+          grunt.log.writeln(path.resolve('./' + opts.basePath + module));
+          mod = require(path.resolve('./' + opts.basePath + module));
+          mod.register(handlebars);
+        } catch(err) {
+          grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it?');
+        }
+      });
+    }
+    
     if (this.files.length < 1) {
       grunt.verbose.warn('Destination not written because no source files were provided.');
     }
@@ -61,7 +91,6 @@ module.exports = function(grunt) {
     if (typeof opts.partials === 'string') {
       opts.partials = [opts.partials];
     }
-    opts.partials.push(opts.partials);
 
     if (opts.partials.length > 0) {
       opts.partials.forEach(function(partial){
