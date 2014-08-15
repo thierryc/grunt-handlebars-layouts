@@ -86,7 +86,9 @@ This plugin can be customized by specifying the following options:
 * `partials`: partials files.
 * `basePath`: The base location to all your templates so that includes/partials can be resolved correctly.
 * `context`: A JavaScript object to render the template against. This option supports a few different types:
-* `modules`: add your customs handlebars helpers (TODO: add npm module too)
+* `modules`: add your customs handlebars helpers
+
+Useful Handlebars Helpers : [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
 
 
 **String**: the location to a file containing valid JSON:
@@ -185,6 +187,60 @@ context: [
 
 ```html
 <footer>footer</footer>
+```
+
+### Custom Helper example
+
+#### MD5 Helper (inspired by [handlebars-md5](https://github.com/neoziro/handlebars-md5))
+
+```js
+'use strict';
+
+var crypto = require('crypto'),
+    fs = require('fs');
+
+// The module to be exported
+var helpers = {
+  md5: function (path) {
+    var content = fs.readFileSync(path);
+    return crypto.createHash('md5').update(content).digest('hex');
+  }
+};
+
+// Export helpers
+module.exports.register = function (Handlebars, options) {
+  options = options || {};
+
+  for (var helper in helpers) {
+    if (helpers.hasOwnProperty(helper)) {
+      Handlebars.registerHelper(helper, helpers[helper]);
+    }
+  }
+};
+```
+
+#### Foo Helper
+
+```js
+'use strict';
+
+// The module to be exported
+var helpers = {
+  foo: function () {
+    return 'foo';
+  }
+};
+
+// Export helpers
+module.exports.register = function (Handlebars, options) {
+  options = options || {};
+
+  for (var helper in helpers) {
+    if (helpers.hasOwnProperty(helper)) {
+      Handlebars.registerHelper(helper, helpers[helper]);
+    }
+  }
+};
 ```
 
 ### Release History and Roadmap

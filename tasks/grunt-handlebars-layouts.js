@@ -74,9 +74,9 @@ module.exports = function(grunt) {
       modules.forEach(function(module){
         // Require modules
         var mod;
+        var modPath = (module.indexOf('.js') > 0) ? path.resolve('./' + opts.basePath + module) : module;
         try {
-          grunt.log.writeln(path.resolve('./' + opts.basePath + module));
-          mod = require(path.resolve('./' + opts.basePath + module));
+          mod = require(modPath);
           mod.register(handlebars);
         } catch(err) {
           grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it?');
