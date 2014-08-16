@@ -78,7 +78,8 @@ module.exports = function(grunt) {
         var mod;
         try {
           mod = require(module);
-          mod.register(handlebars);
+          grunt.log.writeln(typeof mod, mod.register, module);
+          mod.register(handlebars, {});
         } catch(err) {
           grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it ?');
         }
@@ -107,7 +108,8 @@ module.exports = function(grunt) {
 
     async.each(partials, function(partial, callback) {
       var partialName = path.basename(partial, path.extname(partial));
-      handlebars.registerPartial(partialName, grunt.file.read(partial));
+      var partialFile = grunt.file.read(partial);
+      handlebars.registerPartial(partialName, partialFile);
     }, done);
 
     async.each(this.files, function(f, callback) {
@@ -125,8 +127,6 @@ module.exports = function(grunt) {
               
                 var context = Object.create(this);
                 var template = handlebars.partials[partial];
-              
-              
 
                 // Partial template required
                 if (template == null) {

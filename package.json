@@ -36,7 +36,8 @@
   "devDependencies": {
     "grunt" : "~0.4.2",
     "grunt-contrib-jshint": "0.1.x",
-    "grunt-contrib-nodeunit": "0.1.x"
+    "grunt-contrib-nodeunit": "0.1.x",
+    "marked": "~0.3.2"
   },
   "keywords" : [
     "gruntplugin", "handlebars", "template"

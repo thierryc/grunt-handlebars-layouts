@@ -16,9 +16,13 @@
         
         <p>md5 file : {{md5 "src/layout.html"}}</p>
         
+        {{md "content"}}
+        
     {{/replace}}
 
     {{#prepend "footer"}}
         <script src="assets/js/analytics.js"></script>
     {{/prepend}}
+    
+    {{> footer}}
 {{/extend}}

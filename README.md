@@ -40,7 +40,6 @@ grunt.loadNpmTasks("grunt-handlebars-layouts");
 
 *This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can't please use [v0.3.3](https://github.com/gruntjs/grunt-contrib-handlebars/tree/grunt-0.3-stable).*
 
-
 Lastly, add the configuration settings (see below) to your grunt file.
 
 ## Documentation
@@ -63,7 +62,13 @@ An example configuration looks like this:
           'dist/home.html': 'src/home.html'
         },
         options: {
-          partials: ['src/partials/*.hbs', 'src/layout.html', 'npm-module-name'],
+          partials: [
+            'src/partials/*.hbs',
+            'src/layout.html'
+          ],
+          modules: [
+            'src/helpers/helpers-*.js'
+          ],
           basePath: 'src/',
           context: {
             title: 'Layout Test',
@@ -87,10 +92,9 @@ This plugin can be customized by specifying the following options:
 * `partials`: partials files.
 * `basePath`: The base location to all your templates so that includes/partials can be resolved correctly.
 * `context`: A JavaScript object to render the template against. This option supports a few different types:
-* `modules`: add your customs handlebars helpers
+* `modules`: add your customs helpers
 
 Useful Handlebars Helpers : [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
-
 
 **String**: the location to a file containing valid JSON:
 
@@ -192,10 +196,6 @@ context: [
 
 ### Custom Helper example
 
-Assemble helpers can use. 
-
-* Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
-
 Helpers can either be an object or a single register function. If register is on the object, then it calls the register function, passing in the engine. 
 
 ```js
@@ -204,6 +204,21 @@ module.exports.register = function (Handlebars, options)  {
     return 'foo';
   });
 };
+```
+
+**Assemble** helpers can use. 
+
+* Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
+
+```js
+{
+  "devDependencies": {
+    "handlebars-helper-md": "*"
+  },
+  "keywords": [
+    "handlebars-helper-md"
+  ]
+}
 ```
 
 #### MD5 Helper (inspired by [handlebars-md5](https://github.com/neoziro/handlebars-md5))
