@@ -21,8 +21,10 @@ module.exports.register = function (Handlebars, options) {
     smartypants: false
   };
   
-  Handlebars.registerHelper('md', function(name, context){
-    var result;
+  var context = options.context;
+  
+  Handlebars.registerHelper('md', function(name, options){
+    var result, template;
     marked.setOptions(options.marked);
     // Convert inline markdown by prepending the name string with `:`
     if(name.match(/^:/)) {
@@ -34,6 +36,7 @@ module.exports.register = function (Handlebars, options) {
         result = '<!-- error -->'; 
       }
     }
-    return new Handlebars.SafeString(result); 
+    template = Handlebars.compile(result);
+    return new Handlebars.SafeString(template(context));
   });  
 };

@@ -78,7 +78,7 @@ module.exports = function(grunt) {
         var mod;
         try {
           mod = require(module);
-          mod.register(handlebars, {});
+          mod.register(handlebars, opts);
         } catch(err) {
           grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it ?');
         }

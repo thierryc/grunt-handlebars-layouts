@@ -249,7 +249,7 @@ module.exports.register = function (Handlebars, options) {
 };
 ```
 
-#### Foo and bar Helper
+#### Foo and bar Helpers
 
 ```js
 'use strict';
@@ -276,7 +276,7 @@ module.exports.register = function (Handlebars, options) {
 };
 ```
 
-#### Handlebars Markdown Helpers
+#### Handlebars Markdown Helper
 
 Very simple Markdown for partial. **do not forget** to add your .md files to the partial list.
 
@@ -330,6 +330,20 @@ module.exports.register = function (Handlebars, options) {
 
 ```
 
+
+## suggested structure
+
+### A basic Handlebars-layouts site usually looks something like this:
+.
+├── partials
+|   ├── footer.(html|hsb|md)
+|   └── header.(html|hsb|md)
+├── posts
+|   ├── 2014-08-14-Handlebars-layouts-foo.(html|hsb)
+|   └── 2014-08-14-Handlebars-layouts-bar.(html|hsb)
+├── data
+|   └── members.json
+└── index.html
 
 ## Other interresting projects 
 
