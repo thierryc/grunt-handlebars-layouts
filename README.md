@@ -206,21 +206,6 @@ module.exports.register = function (Handlebars, options)  {
 };
 ```
 
-**Assemble** helpers can use. 
-
-* Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
-
-```js
-{
-  "devDependencies": {
-    "handlebars-helper-md": "*"
-  },
-  "keywords": [
-    "handlebars-helper-md"
-  ]
-}
-```
-
 #### MD5 Helper (inspired by [handlebars-md5](https://github.com/neoziro/handlebars-md5))
 
 ```js
@@ -329,7 +314,6 @@ module.exports.register = function (Handlebars, options) {
 };
 
 ```
-
 
 ## Other interresting projects 
 
