@@ -276,6 +276,61 @@ module.exports.register = function (Handlebars, options) {
 };
 ```
 
+#### Handlebars Markdown Helpers
+
+Very simple Markdown for partial. **do not forget** to add your .md files to the partial list.
+
+```js
+options: {
+  partials: 'src/partials/*.md',
+  ...
+}
+```
+
+```js
+/**
+ * Handlebars Markdown Helpers
+ * Copyright (c) 2014 Thierry Charbonnel
+ * Licensed under the MIT License (MIT).
+ */
+'use strict';
+
+var marked = require('marked');
+
+// Export helpers
+module.exports.register = function (Handlebars, options) {
+  options = options || {};
+  options.marked = options.marked || {
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false
+  };
+  
+  Handlebars.registerHelper('md', function(name, context){
+    var result;
+    marked.setOptions(options.marked);
+    // Convert inline markdown by prepending the name string with `:`
+    if(name.match(/^:/)) {
+      result = marked(name.replace(/^:/, ''));
+    } else {
+      try {
+        result = marked(Handlebars.partials[name]);
+      } catch(err) {
+        result = '<!-- error -->'; 
+      }
+    }
+    return new Handlebars.SafeString(result); 
+  });  
+};
+
+```
+
+
 ## Other interresting projects 
 
 * To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)
@@ -286,7 +341,7 @@ module.exports.register = function (Handlebars, options) {
 
 ## Release History and Roadmap
 
- * 2014-08-??   v0.1.0   First Release.
+ * 2014-08-17   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
 
 ## License
