@@ -14,10 +14,8 @@ A grunt.js task to render Handlebars templates against a context &amp; produce H
 
 * [Handlebars templates](http://handlebarsjs.com)
 * [Mustache](http://mustache.github.io)
-
-
-
-
+* [Treehouse Blog, Handlebars.js Part 2: Partials and Helpers](http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers)
+* [NetTuts+: An Introduction to Handlebars](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
 
 ## About
 
@@ -65,8 +63,8 @@ An example configuration looks like this:
           'dist/home.html': 'src/home.html'
         },
         options: {
+          partials: ['src/partials/*.hbs', 'src/layout.html', 'npm-module-name'],
           basePath: 'src/',
-          partials: ['partials/*.hbs', 'layout.html'],
           context: {
             title: 'Layout Test',
             items: [
@@ -194,6 +192,20 @@ context: [
 
 ### Custom Helper example
 
+Assemble helpers can use. 
+
+* Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
+
+Helpers can either be an object or a single register function. If register is on the object, then it calls the register function, passing in the engine. 
+
+```js
+module.exports.register = function (Handlebars, options)  { 
+  Handlebars.registerHelper('foo', function ()  { 
+    return 'foo';
+  });
+};
+```
+
 #### MD5 Helper (inspired by [handlebars-md5](https://github.com/neoziro/handlebars-md5))
 
 ```js
@@ -222,7 +234,7 @@ module.exports.register = function (Handlebars, options) {
 };
 ```
 
-#### Foo Helper
+#### Foo and bar Helper
 
 ```js
 'use strict';
@@ -231,6 +243,9 @@ module.exports.register = function (Handlebars, options) {
 var helpers = {
   foo: function () {
     return 'foo';
+  },
+  bar: function () {
+    return 'bar';
   }
 };
 
@@ -253,9 +268,6 @@ module.exports.register = function (Handlebars, options) {
 * This task renders Dust templates against a context to produce HTML. [grunt-dust-html](https://github.com/ehynds/grunt-dust-html) 
 * Handlebars helpers which implement Jade-like layout blocks for Node project [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts)
 * Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
-
-
-
 
 ## Release History and Roadmap
 

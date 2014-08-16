@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   var _ = require('lodash');
   var async = require('async');
   var chalk = require('chalk');
-  var glob = require('glob');
+  var resolve = require('resolve-dep');
 
   grunt.registerMultiTask('handlebarslayouts', 'Render Handlebars templates against a context to produce HTML', function() {
     var handlebars;
@@ -22,6 +22,7 @@ module.exports = function(grunt) {
     var partials = [];
     var modules = [];
     var opts = this.options({
+      engine: 'handlebars',
       basePath: '',
       defaultExt: '.hbs',
       whitespace: false,
@@ -32,10 +33,11 @@ module.exports = function(grunt) {
     
     // Require handlebars
     try {
-      handlebars = require('handlebars');
+      handlebars = require(opts.engine);
     } catch(err) {
       grunt.fail.fatal('Unable to find the Handlebars dependency. Did you npm install it?');
     }
+    grunt.verbose.ok(">> Current engine:".green, opts.engine);
 
     // Load includes/partials from the filesystem properly
     handlebars.onLoad = function(filePath, callback) {
@@ -65,7 +67,7 @@ module.exports = function(grunt) {
       opts.modules.forEach(function(module){
         module = String(module);
         if (module.indexOf('*') > 0 ) {
-          modules.push.apply(modules, glob.sync(module, {cwd: opts.basePath}));
+          modules.push.apply(modules, resolve(module));
         } else {
           modules.push(module);
         }
@@ -74,12 +76,11 @@ module.exports = function(grunt) {
       modules.forEach(function(module){
         // Require modules
         var mod;
-        var modPath = (module.indexOf('.js') > 0) ? path.resolve('./' + opts.basePath + module) : module;
         try {
-          mod = require(modPath);
+          mod = require(module);
           mod.register(handlebars);
         } catch(err) {
-          grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it?');
+          grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it ?');
         }
       });
     }
@@ -97,7 +98,7 @@ module.exports = function(grunt) {
         partial = String(partial);
         if (partial.indexOf('*') > 0 ) {
           // options is optional
-          partials.push.apply(partials, glob.sync(partial, {cwd: opts.basePath}));
+          partials.push.apply(partials, resolve(partial));
         } else {
           partials.push(partial);
         }
@@ -106,7 +107,7 @@ module.exports = function(grunt) {
 
     async.each(partials, function(partial, callback) {
       var partialName = path.basename(partial, path.extname(partial));
-      handlebars.registerPartial(partialName, grunt.file.read(opts.basePath + partial));
+      handlebars.registerPartial(partialName, grunt.file.read(partial));
     }, done);
 
     async.each(this.files, function(f, callback) {

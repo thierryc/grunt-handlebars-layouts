@@ -11,9 +11,9 @@ module.exports = function(grunt) {
           'dist/home.html': 'src/home.html'
         },
         options: {
+          partials: ['src/partials/*.hbs', 'src/layout.html'],
           basePath: 'src/',
-          partials: ['partials/*.hbs', 'layout.html'],
-          modules: 'helpers/helpers-*.js',
+          modules: 'src/helpers/helpers-*.js',
           context: {
             title: 'Layout Test',
             items: [
