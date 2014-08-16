@@ -10,11 +10,14 @@ Handlebars helpers which implement Jade-like layout blocks.
 
 A grunt.js task to render Handlebars templates against a context &amp; produce HTML
 
-* [Handlebars templates](http://handlebarsjs.com)
+### Resources
 
+* [Handlebars templates](http://handlebarsjs.com)
 * [Mustache](http://mustache.github.io)
 
-To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)
+
+
+
 
 ## About
 
@@ -243,11 +246,23 @@ module.exports.register = function (Handlebars, options) {
 };
 ```
 
-### Release History and Roadmap
+## Other interresting projects 
+
+* To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)
+* Static site generator for Grunt.js, Yeoman and Node.js. [Assemble](http://assemble.io)
+* This task renders Dust templates against a context to produce HTML. [grunt-dust-html](https://github.com/ehynds/grunt-dust-html) 
+* Handlebars helpers which implement Jade-like layout blocks for Node project [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts)
+* Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
+
+
+
+
+## Release History and Roadmap
 
  * 2014-08-??   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
 
 ## License
 
-MIT
+Copyright (c) 2014 Thierry Charbonnel, contributors.  
+Released under the MIT license
