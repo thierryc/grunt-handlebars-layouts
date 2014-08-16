@@ -1,4 +1,4 @@
-grunt handlebars layouts
+Grunt Handlebars Layouts
 ========================
 
 Handlebars helpers which implement Jade-like layout blocks.
