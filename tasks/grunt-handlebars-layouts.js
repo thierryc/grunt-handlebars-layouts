@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     } catch(err) {
       grunt.fail.fatal('Unable to find the Handlebars dependency. Did you npm install it?');
     }
-    grunt.verbose.ok(">> Current engine:".green, opts.engine);
+    grunt.verbose.ok("Current engine:".green, opts.engine);
 
     // Load includes/partials from the filesystem properly
     handlebars.onLoad = function(filePath, callback) {
@@ -78,7 +78,6 @@ module.exports = function(grunt) {
         var mod;
         try {
           mod = require(module);
-          grunt.log.writeln(typeof mod, mod.register, module);
           mod.register(handlebars, {});
         } catch(err) {
           grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it ?');
@@ -228,16 +227,13 @@ module.exports = function(grunt) {
         // render template and save as html
         html = template(context);
         grunt.file.write(f.dest, html);
-        grunt.log.writeln('File "' + f.dest + '" created.');
+        grunt.log.writeln('File "' + f.dest + '" ' + 'created.'.green);
       
       });
-    }, done);
-    
+    }, done); 
   });
 
   function parseError(err, filePath) {
     grunt.fatal('Error parsing handlebars template: ' + err + ' ' + filePath);
   }
-  
-
 };
