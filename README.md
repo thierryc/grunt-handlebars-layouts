@@ -1,4 +1,4 @@
-grunt handlebars layouts
+Grunt Handlebars Layouts
 ========================
 
 Handlebars helpers which implement Jade-like layout blocks.
@@ -206,21 +206,6 @@ module.exports.register = function (Handlebars, options)  {
 };
 ```
 
-**Assemble** helpers can use. 
-
-* Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
-
-```js
-{
-  "devDependencies": {
-    "handlebars-helper-md": "*"
-  },
-  "keywords": [
-    "handlebars-helper-md"
-  ]
-}
-```
-
 #### MD5 Helper (inspired by [handlebars-md5](https://github.com/neoziro/handlebars-md5))
 
 ```js
@@ -330,6 +315,7 @@ module.exports.register = function (Handlebars, options) {
 
 ```
 
+<<<<<<< HEAD
 
 ## suggested structure
 
@@ -345,6 +331,8 @@ module.exports.register = function (Handlebars, options) {
 |   └── members.json
 └── index.html
 
+=======
+>>>>>>> FETCH_HEAD
 ## Other interresting projects 
 
 * To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)
