@@ -315,7 +315,41 @@ module.exports.register = function (Handlebars, options) {
 
 ```
 
-<<<<<<< HEAD
+## npm Helpers 
+
+Add it in devDependencies and in gruntfiles.js
+
+```js
+"devDependencies": {
+  "handlebars-helper-moment": "*"
+},
+```
+
+Add it in gruntfiles.js
+
+```js
+handlebarslayouts: {
+  home: {
+    files: {
+      'dist/home.html': 'src/home.html'
+    },
+    options: {
+      ...
+      modules: ['src/helpers/helpers-*.js', 'handlebars-helper-moment'],
+      ...
+    }
+  }
+}
+```
+
+```
+npm install
+```
+
+### Tested Helpers
+
+* [handlebars-helper-moment](https://github.com/helpers/handlebars-helper-moment)
+
 
 ## suggested structure
 
@@ -324,15 +358,17 @@ module.exports.register = function (Handlebars, options) {
 ├── partials
 |   ├── footer.(html|hsb|md)
 |   └── header.(html|hsb|md)
-├── posts
+├── pages
 |   ├── 2014-08-14-Handlebars-layouts-foo.(html|hsb)
 |   └── 2014-08-14-Handlebars-layouts-bar.(html|hsb)
 ├── data
 |   └── members.json
+├── helpers
+|   └── helpers-*.js
 └── index.html
 
 =======
->>>>>>> FETCH_HEAD
+
 ## Other interresting projects 
 
 * To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)

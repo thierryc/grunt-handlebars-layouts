@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         options: {
           partials: ['src/partials/*.hbs', 'src/partials/*.md', 'src/layout.html'],
           basePath: 'src/',
-          modules: ['src/helpers/helpers-*.js'],
+          modules: ['src/helpers/helpers-*.js', 'handlebars-helper-moment'],
           context: {
             title: 'Layout Test',
             items: [

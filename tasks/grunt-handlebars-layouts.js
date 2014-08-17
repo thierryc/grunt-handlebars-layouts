@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       context: {},
       partials: []
     });
-    
+
     // Require handlebars
     try {
       handlebars = require(opts.engine);
@@ -57,12 +57,10 @@ module.exports = function(grunt) {
 
     };
 
-    
     if (typeof opts.modules === 'string') {
       opts.modules = [opts.modules];
     }
-    
-    
+
     if (opts.modules.length > 0) {
       opts.modules.forEach(function(module){
         module = String(module);
@@ -72,19 +70,28 @@ module.exports = function(grunt) {
           modules.push(module);
         }
       });
-      
+
       modules.forEach(function(module){
         // Require modules
-        var mod;
+        var mod, helpers;
         try {
           mod = require(module);
-          mod.register(handlebars, opts);
+          if (typeof mod.register == 'function') {
+            mod.register(handlebars, opts);
+          } else { 
+            helpers = mod();
+            for (var helper in helpers) {
+              if (helpers.hasOwnProperty(helper)) {
+                handlebars.registerHelper(helper, helpers[helper]);
+              }
+            }
+          }
         } catch(err) {
           grunt.fail.fatal('Unable to find the ' + module + ' dependency. Did you install it ?');
         }
       });
     }
-    
+
     if (this.files.length < 1) {
       grunt.verbose.warn('Destination not written because no source files were provided.');
     }

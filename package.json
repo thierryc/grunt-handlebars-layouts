@@ -37,7 +37,9 @@
     "grunt" : "~0.4.2",
     "grunt-contrib-jshint": "0.1.x",
     "grunt-contrib-nodeunit": "0.1.x",
-    "marked": "~0.3.2"
+    "marked": "~0.3.2",
+    "moment": "~2.0.0",
+    "handlebars-helper-moment": "*"
   },
   "keywords" : [
     "gruntplugin", "handlebars", "template"
