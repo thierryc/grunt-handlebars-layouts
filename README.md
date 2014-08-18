@@ -354,6 +354,8 @@ npm install
 ## suggested structure
 
 ### A basic Handlebars-layouts site usually looks something like this:
+
+```
 .
 ├── partials
 |   ├── footer.(html|hsb|md)
@@ -366,6 +368,7 @@ npm install
 ├── helpers
 |   └── helpers-*.js
 └── index.html
+```
 
 =======
 
