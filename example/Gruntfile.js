@@ -16,6 +16,7 @@ module.exports = function(grunt) {
           modules: ['src/helpers/helpers-*.js', 'handlebars-helper-moment'],
           context: {
             title: 'Layout Test',
+            projectName: 'Grunt handlebars layout',
             items: [
               'apple',
               'orange',
