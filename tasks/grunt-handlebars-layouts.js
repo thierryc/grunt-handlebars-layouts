@@ -239,9 +239,7 @@ module.exports = function(grunt) {
       
       });
       callback();
-    }, done); 
-    
-    grunt.log.writeln('Done'.green);
+    }, done);
   });
 
   function parseError(err, filePath) {
