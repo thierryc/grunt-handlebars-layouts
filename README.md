@@ -382,6 +382,7 @@ npm install
 
 ## Release History and Roadmap
 
+ * 2014-09-05   v0.1.1   Async optimisation.
  * 2014-09-03   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
 
