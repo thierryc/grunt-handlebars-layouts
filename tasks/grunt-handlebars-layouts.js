@@ -116,6 +116,7 @@ module.exports = function(grunt) {
       var partialName = path.basename(partial, path.extname(partial));
       var partialFile = grunt.file.read(partial);
       handlebars.registerPartial(partialName, partialFile);
+      callback();
     }, done);
 
     async.each(this.files, function(f, callback) {
@@ -237,7 +238,10 @@ module.exports = function(grunt) {
         grunt.log.writeln('File "' + f.dest + '" ' + 'created.'.green);
       
       });
+      callback();
     }, done); 
+    
+    grunt.log.writeln('Done'.green);
   });
 
   function parseError(err, filePath) {
