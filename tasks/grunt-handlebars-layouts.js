@@ -28,7 +28,8 @@ module.exports = function(grunt) {
       whitespace: false,
       modules: [],
       context: {},
-      partials: []
+      partials: [],
+      strict: false
     });
 
     // Require handlebars
@@ -76,7 +77,7 @@ module.exports = function(grunt) {
         var mod, helpers;
         try {
           mod = require(module);
-          if (typeof mod.register == 'function') {
+          if (typeof mod.register === 'function') {
             mod.register(handlebars, opts);
           } else { 
             helpers = mod();
@@ -115,15 +116,40 @@ module.exports = function(grunt) {
     async.each(partials, function(partial, callback) {
       var partialName = path.basename(partial, path.extname(partial));
       var partialFile = grunt.file.read(partial);
-      handlebars.registerPartial(partialName, partialFile);
+      try {
+        handlebars.registerPartial(partialName, partialFile);
+      } catch(err) {
+        parseError(err, partial);
+        callback(err);
+      }
       callback();
     }, done);
 
-    async.each(this.files, function(f, callback) {
-      f.src.forEach(function(srcFile) {
+    async.each(this.files, function(filePair, callback) {
+
+      var src = filePair.src.filter(function(filepath) {
+        // Warn on and remove invalid source files (if nonull was set).
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file ' + chalk.cyan(filepath) + ' not found.');
+          return false;
+        } else {
+          return true;
+        }
+      });
+
+      if (src.length === 0) {
+        var err = 'Destination ' + chalk.cyan(filePair.dest) + ' not written because src files were empty.';
+        grunt.log.warn(err);
+        if (opts.strict) {
+          callback(err);
+          parseError(err, filePair.dest);
+        }
+      }
+
+      filePair.src.forEach(function(srcFile) {
         var context = opts.context;
         var template, html;
-
+        
         var getBlocks = function (context, name) {
             var blocks = context._blocks;
             return blocks[name] || (blocks[name] = []);
@@ -212,8 +238,11 @@ module.exports = function(grunt) {
         try {
           template = handlebars.compile(grunt.file.read(srcFile));
         } catch(err) {
+          callback(err);
           parseError(err, srcFile);
         }
+        
+        grunt.log.writeln(template);
 
         // if context is a string assume it's the location to a file
         if (typeof opts.context === 'string') {
@@ -234,9 +263,9 @@ module.exports = function(grunt) {
 
         // render template and save as html
         html = template(context);
-        grunt.file.write(f.dest, html);
-        grunt.log.writeln('File "' + f.dest + '" ' + 'created.'.green);
-      
+        grunt.file.write(filePair.dest, html);
+        grunt.log.writeln('File "' + filePair.dest + '" ' + 'created.'.green);
+
       });
       callback();
     }, done);

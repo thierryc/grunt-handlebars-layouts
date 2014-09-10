@@ -93,6 +93,7 @@ This plugin can be customized by specifying the following options:
 * `basePath`: The base location to all your templates so that includes/partials can be resolved correctly.
 * `context`: A JavaScript object to render the template against. This option supports a few different types:
 * `modules`: add your customs helpers
+* `strict`: when is true the process fails if one file is missing (when is false juste a warning is trigger)
 
 Useful Handlebars Helpers : [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
 
@@ -382,6 +383,7 @@ npm install
 
 ## Release History and Roadmap
 
+ * 2014-09-05   v0.1.3   better log error + strict mode.
  * 2014-09-05   v0.1.1   Async optimisation.
  * 2014-09-03   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
