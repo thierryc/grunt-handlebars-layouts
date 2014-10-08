@@ -401,8 +401,8 @@ npm install
 
 ## Release History and Roadmap
 
- * 2014-10-08   v0.1.4   add * for files list and unique name for tartials error.
- * 2014-09-05   v0.1.3   better log error + strict mode.
+ * 2014-10-08   v0.1.4   Add * for files list and unique name for Partials.
+ * 2014-09-05   v0.1.3   Better log error + strict mode.
  * 2014-09-05   v0.1.1   Async optimisation.
  * 2014-09-03   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
