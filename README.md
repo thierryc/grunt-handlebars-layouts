@@ -332,7 +332,8 @@ Add it in gruntfiles.js
 handlebarslayouts: {
   home: {
     files: {
-      'dist/home.html': 'src/home.html'
+      'dist/home.html': 'src/home.html',
+      'dist/index.html': 'src/index.html'
     },
     options: {
       ...
