@@ -344,7 +344,7 @@ handlebarslayouts: {
 }
 ```
 
-or 
+or ( v0.1.4 > )
 
 ```js
 handlebarslayouts: {
