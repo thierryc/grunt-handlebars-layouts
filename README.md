@@ -350,7 +350,7 @@ or ( v0.1.4 > )
 handlebarslayouts: {
   home: {
     files: {
-      'dist/*.html': 'src/*.html'
+      'dist/*.html': 'src/*.hsb'
     },
     options: {
       ...
