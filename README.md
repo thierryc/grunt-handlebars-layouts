@@ -343,6 +343,23 @@ handlebarslayouts: {
 }
 ```
 
+or 
+
+```js
+handlebarslayouts: {
+  home: {
+    files: {
+      'dist/*.html': 'src/*.html'
+    },
+    options: {
+      ...
+      modules: ['src/helpers/helpers-*.js', 'handlebars-helper-moment'],
+      ...
+    }
+  }
+}
+```
+
 ```
 npm install
 ```
@@ -383,6 +400,7 @@ npm install
 
 ## Release History and Roadmap
 
+ * 2014-10-08   v0.1.4   add * for files list and unique name for tartials error.
  * 2014-09-05   v0.1.3   better log error + strict mode.
  * 2014-09-05   v0.1.1   Async optimisation.
  * 2014-09-03   v0.1.0   First Release.

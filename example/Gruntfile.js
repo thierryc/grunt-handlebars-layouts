@@ -8,7 +8,8 @@ module.exports = function(grunt) {
     handlebarslayouts: {
       home: {
         files: {
-          'dist/home.html': 'src/home.html'
+          //'dist/home.html': 'src/home.html'
+          'dist/*.html': 'src/*.hsb'
         },
         options: {
           partials: ['src/partials/*.hbs', 'src/partials/*.md', 'src/layout.html'],

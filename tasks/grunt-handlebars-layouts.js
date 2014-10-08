@@ -111,7 +111,16 @@ module.exports = function(grunt) {
           partials.push(partial);
         }
       });
+      var partialsNames = [];
+      partials.forEach(function(partial){
+        var partialName = path.basename(partial, path.extname(partial));
+        if(partialsNames[partialName]){
+          parseError('\n' + chalk.red(partialName) +' basename already exist !\nPartial\'s basename (without extension) must be unique.\n', partialName);
+        }
+        partialsNames[partialName] = true;
+      });
     }
+
 
     async.each(partials, function(partial, callback) {
       var partialName = path.basename(partial, path.extname(partial));
@@ -129,6 +138,7 @@ module.exports = function(grunt) {
 
       var src = filePair.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
+        grunt.log.writeln(filepath);
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file ' + chalk.cyan(filepath) + ' not found.');
           return false;
@@ -157,10 +167,8 @@ module.exports = function(grunt) {
 
         handlebars.registerHelper({
             extend: function (partial, options) {
-              
                 var context = Object.create(this);
                 var template = handlebars.partials[partial];
-
                 // Partial template required
                 if (template == null) {
                     throw new Error('Missing layout partial: \'' + partial + '\'');
@@ -176,7 +184,6 @@ module.exports = function(grunt) {
                 if (typeof template !== 'function') {
                     template = handlebars.compile(template);
                 }
-
                 // Compile, then render
                 return template(context);
             },
@@ -241,8 +248,7 @@ module.exports = function(grunt) {
           callback(err);
           parseError(err, srcFile);
         }
-        
-        grunt.log.writeln(template);
+
 
         // if context is a string assume it's the location to a file
         if (typeof opts.context === 'string') {
@@ -263,8 +269,14 @@ module.exports = function(grunt) {
 
         // render template and save as html
         html = template(context);
-        grunt.file.write(filePair.dest, html);
-        grunt.log.writeln('File "' + filePair.dest + '" ' + 'created.'.green);
+        var dest = filePair.dest;
+        if (filePair.dest.indexOf('*') > 0 ) {
+          var fileName = path.basename(srcFile, path.extname(srcFile));
+          dest = filePair.dest.replace('*', fileName);
+          
+        }
+        grunt.file.write(dest, html);
+        grunt.log.writeln('File "' + dest + '" ' + 'created.'.green);
 
       });
       callback();
