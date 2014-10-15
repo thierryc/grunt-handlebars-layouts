@@ -114,9 +114,11 @@ module.exports = function(grunt) {
       var partialsNames = [];
       partials.forEach(function(partial){
         var partialName = path.basename(partial, path.extname(partial));
+        /*
         if(partialsNames[partialName]){
           parseError('\n' + chalk.red(partialName) +' basename already exist !\nPartial\'s basename (without extension) must be unique.\n', partialName);
         }
+        */
         partialsNames[partialName] = true;
       });
     }
