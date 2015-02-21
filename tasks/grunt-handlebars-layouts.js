@@ -131,12 +131,8 @@ module.exports = function(grunt) {
         handlebars.registerPartial(partialName, partialFile);
       } catch(err) {
         parseError(err, partial);
-        //callback(err);
       }
     });
-    // callback();
-    //}, done);
-
 
     this.files.forEach(function(filePair) {
     //async.each(this.files, function(filePair, callback) {
@@ -156,7 +152,6 @@ module.exports = function(grunt) {
         var err = 'Destination ' + chalk.cyan(filePair.dest) + ' not written because src files were empty.';
         grunt.log.warn(err);
         if (opts.strict) {
-          //callback(err);
           parseError(err, filePair.dest);
         }
       }
@@ -245,12 +240,10 @@ module.exports = function(grunt) {
 
         // preserve whitespace?
         // TODO
-
         // pre-compile the template
         try {
           template = handlebars.compile(grunt.file.read(srcFile));
         } catch(err) {
-          //callback(err);
           parseError(err, srcFile);
         }
 
@@ -267,7 +260,6 @@ module.exports = function(grunt) {
             if(typeof obj === 'string') {
               obj = grunt.file.readJSON(obj);
             }
-
             _.extend(context, obj);
           });
         }
@@ -284,10 +276,7 @@ module.exports = function(grunt) {
 
       });
     });
-    
     done();
-    //  callback();
-    //}, done);
   });
 
   function parseError(err, filePath) {

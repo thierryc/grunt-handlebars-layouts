@@ -401,6 +401,8 @@ npm install
 
 ## Release History and Roadmap
 
+ * 2015-01-21   v0.2.0   
+ * 2015-01-21   v0.2.0b  ready to work with grunt-contrib-connect and  grunt-contrib-watch.
  * 2014-10-08   v0.1.6   windows fix.
  * 2014-10-08   v0.1.4   Add * for files list and unique name for Partials.
  * 2014-09-05   v0.1.3   Better log error + strict mode.
