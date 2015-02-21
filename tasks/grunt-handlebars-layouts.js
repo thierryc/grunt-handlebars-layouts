@@ -123,20 +123,23 @@ module.exports = function(grunt) {
       });
     }
 
-
-    async.each(partials, function(partial, callback) {
+    partials.forEach(function(partial) {
+    //async.each(partials, function(partial, callback) {
       var partialName = path.basename(partial, path.extname(partial));
       var partialFile = grunt.file.read(partial);
       try {
         handlebars.registerPartial(partialName, partialFile);
       } catch(err) {
         parseError(err, partial);
-        callback(err);
+        //callback(err);
       }
-      callback();
-    }, done);
+    });
+    // callback();
+    //}, done);
 
-    async.each(this.files, function(filePair, callback) {
+
+    this.files.forEach(function(filePair) {
+    //async.each(this.files, function(filePair, callback) {
 
       var src = filePair.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
@@ -153,7 +156,7 @@ module.exports = function(grunt) {
         var err = 'Destination ' + chalk.cyan(filePair.dest) + ' not written because src files were empty.';
         grunt.log.warn(err);
         if (opts.strict) {
-          callback(err);
+          //callback(err);
           parseError(err, filePair.dest);
         }
       }
@@ -247,7 +250,7 @@ module.exports = function(grunt) {
         try {
           template = handlebars.compile(grunt.file.read(srcFile));
         } catch(err) {
-          callback(err);
+          //callback(err);
           parseError(err, srcFile);
         }
 
@@ -275,14 +278,16 @@ module.exports = function(grunt) {
         if (filePair.dest.indexOf('*') > 0 ) {
           var fileName = path.basename(srcFile, path.extname(srcFile));
           dest = filePair.dest.replace('*', fileName);
-          
         }
         grunt.file.write(dest, html);
         grunt.log.writeln('File "' + dest + '" ' + 'created.'.green);
 
       });
-      callback();
-    }, done);
+    });
+    
+    done();
+    //  callback();
+    //}, done);
   });
 
   function parseError(err, filePath) {
