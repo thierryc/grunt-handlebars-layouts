@@ -10,7 +10,7 @@ Handlebars helpers which implement Jade-like layout blocks.
 
 A grunt.js task to render Handlebars templates against a context &amp; produce HTML.
 
-If you want to pre-compilation your Handlebars use the _grunt-contrib-handlebars_ Grunt task. This task will pre-compile multiple templates into a single file. 
+If you want to pre-compilation your Handlebars use the [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars) Grunt task. This task will pre-compile multiple templates into a single file. 
 
 ### Resources
 
