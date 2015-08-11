@@ -157,8 +157,8 @@ module.exports = function(grunt) {
       }
 
       filePair.src.forEach(function(srcFile) {
-      	var template, html;
-      	var context = opts.context;
+        var template, html;
+        var context = opts.context;
 
         var getBlocks = function (context, name) {
             var blocks = context._blocks;
@@ -249,14 +249,14 @@ module.exports = function(grunt) {
         
         // if context is an array merge each item together
         if (opts.context instanceof Array) {
-      		var contextFiles = [];
-      		opts.context.forEach(function(element, index, array) {
-      			contextFiles.push.apply(contextFiles, resolve(element));
-      		});
-      		contextFiles.forEach(function(element, index, array) {
-      			context = _.extend(context, grunt.file.readJSON(element));
-      		});
-      	} else if (typeof opts.context === 'string') {
+          var contextFiles = [];
+          opts.context.forEach(function(element, index, array) {
+            contextFiles.push.apply(contextFiles, resolve(element));
+          });
+          contextFiles.forEach(function(element, index, array) {
+            context = _.extend(context, grunt.file.readJSON(element));
+          });
+        } else if (typeof opts.context === 'string') {
           context = grunt.file.readJSON(resolve(opts.context));
         }
 
