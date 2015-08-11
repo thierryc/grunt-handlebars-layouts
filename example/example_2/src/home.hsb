@@ -4,7 +4,7 @@
     {{/append}}
 
     {{#replace "body"}}
-        <h2>Welcome Index page of {{projectName}}</h2>
+        <h2>Welcome Home of {{projectName}}</h2>
 
         <ul>
             {{#items}}

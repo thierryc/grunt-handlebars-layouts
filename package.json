@@ -1,7 +1,7 @@
 {
   "name" : "grunt-handlebars-layouts",
   "description" : "Handlebars task to render Handlebars templates to HTML",
-  "version" : "0.2.0",
+  "version" : "0.2.1",
   "homepage" : "https://github.com/thierryc/grunt-handlebars-layouts",
   "author" : {
     "name" : "Thierry Charbonnel",
@@ -31,17 +31,17 @@
     "resolve-dep": "~0.5.0"
   },
   "peerDependencies": {
-    "grunt" : "~0.4.2"
+    "grunt": "~0.4.2"
   },
   "devDependencies": {
-    "grunt" : "~0.4.2",
+    "grunt": "~0.4.2",
     "grunt-contrib-jshint": "0.1.x",
     "grunt-contrib-nodeunit": "0.1.x",
     "marked": "~0.3.2",
     "moment": "~2.0.0",
     "handlebars-helper-moment": "*"
   },
-  "keywords" : [
+  "keywords": [
     "gruntplugin", "handlebars", "template"
   ]
 }

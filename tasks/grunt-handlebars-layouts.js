@@ -157,9 +157,9 @@ module.exports = function(grunt) {
       }
 
       filePair.src.forEach(function(srcFile) {
-        var context = opts.context;
-        var template, html;
-        
+      	var template, html;
+      	var context = opts.context;
+
         var getBlocks = function (context, name) {
             var blocks = context._blocks;
             return blocks[name] || (blocks[name] = []);
@@ -246,22 +246,18 @@ module.exports = function(grunt) {
         } catch(err) {
           parseError(err, srcFile);
         }
-
-
-        // if context is a string assume it's the location to a file
-        if (typeof opts.context === 'string') {
-          context = grunt.file.readJSON(opts.context);
-
+        
         // if context is an array merge each item together
-        } else if (Array.isArray(opts.context)) {
-          context = {};
-
-          opts.context.forEach(function(obj) {
-            if(typeof obj === 'string') {
-              obj = grunt.file.readJSON(obj);
-            }
-            _.extend(context, obj);
-          });
+        if (opts.context instanceof Array) {
+      		var contextFiles = [];
+      		opts.context.forEach(function(element, index, array) {
+      			contextFiles.push.apply(contextFiles, resolve(element));
+      		});
+      		contextFiles.forEach(function(element, index, array) {
+      			context = _.extend(context, grunt.file.readJSON(element));
+      		});
+      	} else if (typeof opts.context === 'string') {
+          context = grunt.file.readJSON(resolve(opts.context));
         }
 
         // render template and save as html

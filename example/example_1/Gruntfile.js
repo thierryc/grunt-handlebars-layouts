@@ -53,7 +53,7 @@ module.exports = function(grunt) {
     
   });
   
-  grunt.loadTasks('../tasks');
+  grunt.loadTasks('../../tasks');
   
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
