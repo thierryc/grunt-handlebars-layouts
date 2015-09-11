@@ -496,3 +496,11 @@ module.exports = function(grunt) {
 
 Copyright (c) 2014 Thierry Charbonnel, contributors.  
 Released under the MIT license
+
+
+## Gulp version. 
+
+Sooooon. 
+Help is welcome.
+
+
