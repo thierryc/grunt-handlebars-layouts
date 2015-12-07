@@ -479,6 +479,7 @@ module.exports = function(grunt) {
 * This task renders Dust templates against a context to produce HTML. [grunt-dust-html](https://github.com/ehynds/grunt-dust-html) 
 * Handlebars helpers which implement Jade-like layout blocks for Node project [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts)
 * Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
+* Gulp-Dust Precompile Dust templates [Gulp-Dust](https://github.com/sindresorhus/gulp-dust)
 
 ## Release History and Roadmap
 
