@@ -162,6 +162,7 @@ module.exports = function(grunt) {
 
         var getBlocks = function (context, name) {
             var blocks = context._blocks;
+            if (blocks === undefined) return [];
             return blocks[name] || (blocks[name] = []);
         };
 
