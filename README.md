@@ -483,6 +483,7 @@ module.exports = function(grunt) {
 
 ## Release History and Roadmap
 
+ * 2016-01-05   v0.2.4   bugfix (thanks [giuseppepaul](https://github.com/giuseppepaul))
  * 2015-01-21   v0.2.1   context can loaded as files (exemple_2)
  * 2015-01-21   v0.2.0   update code
  * 2015-01-21   v0.2.0b  ready to work with grunt-contrib-connect and  grunt-contrib-watch.
@@ -498,10 +499,9 @@ module.exports = function(grunt) {
 Copyright (c) 2014 Thierry Charbonnel, contributors.  
 Released under the MIT license
 
-
 ## Gulp version. 
 
 Sooooon. 
-Help is welcome.
+Help is welcome. (contact me)
 
 
