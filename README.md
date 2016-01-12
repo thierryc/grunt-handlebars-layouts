@@ -114,7 +114,7 @@ context: {
 }
 ```
 
-**Array**: an array of contexts, either string (files to parse) or JavaScript objects, or both. Each item in the array will be merged into a single context and rendered against the template:
+**Array**: an array of contexts, either string (files to parse) or JavaScript objects (>= 0.2.5), or both. Each item in the array will be merged into a single context and rendered against the template:
     
 ```js
 context: [
