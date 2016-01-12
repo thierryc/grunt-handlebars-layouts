@@ -483,6 +483,7 @@ module.exports = function(grunt) {
 
 ## Release History and Roadmap
 
+ * 2016-01-05   v0.2.5   Parse object in context. bugfix (thanks [neagle](https://github.com/neagle))
  * 2016-01-05   v0.2.4   bugfix (thanks [giuseppepaul](https://github.com/giuseppepaul))
  * 2015-01-21   v0.2.1   context can loaded as files (exemple_2)
  * 2015-01-21   v0.2.0   update code

@@ -1,0 +1,9 @@
+{
+	"title": "Layout Test",
+	"projectName": "Grunt handlebars layout",
+	"items": [
+		"apple",
+		"orange",
+		"banana"
+	]
+}

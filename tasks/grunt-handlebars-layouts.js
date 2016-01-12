@@ -252,7 +252,11 @@ module.exports = function(grunt) {
         if (opts.context instanceof Array) {
           var contextFiles = [];
           opts.context.forEach(function(element, index, array) {
-            contextFiles.push.apply(contextFiles, resolve(element));
+            if (element instanceof Object) {
+              context = _.extend(context, element);
+            } else {
+              contextFiles.push.apply(contextFiles, resolve(element));
+            }
           });
           contextFiles.forEach(function(element, index, array) {
             context = _.extend(context, grunt.file.readJSON(element));
