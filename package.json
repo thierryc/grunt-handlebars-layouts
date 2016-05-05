@@ -1,29 +1,29 @@
 {
-  "name" : "grunt-handlebars-layouts",
-  "description" : "Handlebars task to render Handlebars templates to HTML",
-  "version" : "0.2.5",
-  "homepage" : "https://github.com/thierryc/grunt-handlebars-layouts",
-  "author" : {
-    "name" : "Thierry Charbonnel",
-    "email" : "info@autreplanete.com",
-    "url" : "http://www.autreplanete.com"
+  "name": "grunt-handlebars-layouts",
+  "description": "Handlebars task to render Handlebars templates to HTML",
+  "version": "0.2.5",
+  "homepage": "https://github.com/thierryc/grunt-handlebars-layouts",
+  "author": {
+    "name": "Thierry Charbonnel",
+    "email": "info@autreplanete.com",
+    "url": "http://www.autreplanete.com"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/thierryc/grunt-handlebars-layouts.git"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thierryc/grunt-handlebars-layouts.git"
   },
-  "bugs" : {
-    "url" : "https://github.com/thierryc/grunt-handlebars-layouts/issues"
+  "bugs": {
+    "url": "https://github.com/thierryc/grunt-handlebars-layouts/issues"
   },
-  "main" : "Gruntfile.js",
-  "bin" : "bin/grunt-handlebars-layouts",
-  "engines" : {
-    "node" : ">= 0.8.0"
+  "main": "Gruntfile.js",
+  "bin": "bin/grunt-handlebars-layouts",
+  "engines": {
+    "node": ">= 0.8.0"
   },
-  "scripts" : {
-    "test" : "grunt test"
+  "scripts": {
+    "test": "grunt test"
   },
-  "dependencies" : {
+  "dependencies": {
     "async": "^1.4.0",
     "handlebars": "~3.0.3",
     "chalk": "^0.5.1",
@@ -31,7 +31,7 @@
     "resolve-dep": "~0.5.0"
   },
   "peerDependencies": {
-    "grunt": "~0.4.2"
+    "grunt": ">=0.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -42,6 +42,8 @@
     "handlebars-helper-moment": "*"
   },
   "keywords": [
-    "gruntplugin", "handlebars", "template"
+    "gruntplugin",
+    "handlebars",
+    "template"
   ]
 }
