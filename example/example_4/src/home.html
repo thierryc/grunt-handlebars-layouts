@@ -1,0 +1,47 @@
+{{#extend "layout"}}
+    {{#append "head"}}
+        <link rel="stylesheet" href="assets/css/home.css" />
+    {{/append}}
+
+    {{#replace "body"}}
+        <h2>Welcome Home of {{projectName}}</h2>
+
+        <ul>
+            {{#items}}
+                <li>{{.}}</li>
+            {{/items}}
+        </ul>
+        
+        <p>3 + 5 = {{add 3 5}}</p>
+        
+        <p>md5 file : {{md5 "src/layout.html"}}</p>
+        
+        {{md "content"}}
+        
+{{md ":
+        
+# title
+
+## sub title
+
+paragraph 1
+
+* li 
+* li
+
+        
+"}}
+
+<p>{{moment format="HH:mm:ss"}}</p>
+<p>firstname: {{firstname}}</p>
+<p>lastname: {{lastname}}</p>
+<p>foo: {{foo}}</p>
+
+    {{/replace}}
+
+    {{#prepend "footer"}}
+        <script src="assets/js/analytics.js"></script>
+    {{/prepend}}
+    
+    {{> footer}}
+{{/extend}}
