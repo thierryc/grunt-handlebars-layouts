@@ -158,11 +158,13 @@ module.exports = function(grunt) {
 
       filePair.src.forEach(function(srcFile) {
         var template, html;
-        var context = opts.context;
+        var context = _.extend(opts.context, {'__filename': srcFile});
 
         var getBlocks = function (context, name) {
             var blocks = context._blocks;
-            if (blocks === undefined) return [];
+            if (blocks === undefined) {
+              return []; 
+            }
             return blocks[name] || (blocks[name] = []);
         };
 
@@ -257,6 +259,7 @@ module.exports = function(grunt) {
             } else {
               contextFiles.push.apply(contextFiles, resolve(element));
             }
+            
           });
           contextFiles.forEach(function(element, index, array) {
             context = _.extend(context, grunt.file.readJSON(element));

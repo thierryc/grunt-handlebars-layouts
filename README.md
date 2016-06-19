@@ -124,6 +124,20 @@ context: [
 ]
 ```
 
+### Special Var In Context
+
+__filename (add in 0.2.7)
+
+This is the resolved local path of this src file. 
+
+use it like {{ __filename }}
+
+or in combination with a helper 
+
+{{slug __filename}}
+
+Take a look to the example/example_4/.
+
 ### Template example
 
 ```html
@@ -215,11 +229,11 @@ module.exports.register = function (Handlebars, options)  {
 ```js
 'use strict';
 
-var crypto = require('crypto'),
+Var crypto = require('crypto'),
     fs = require('fs');
 
 // The module to be exported
-var helpers = {
+Var helpers = {
   md5: function (path) {
     var content = fs.readFileSync(path);
     return crypto.createHash('md5').update(content).digest('hex');
@@ -230,7 +244,7 @@ var helpers = {
 module.exports.register = function (Handlebars, options) {
   options = options || {};
 
-  for (var helper in helpers) {
+  for (Var helper in helpers) {
     if (helpers.hasOwnProperty(helper)) {
       Handlebars.registerHelper(helper, helpers[helper]);
     }
@@ -244,7 +258,7 @@ module.exports.register = function (Handlebars, options) {
 'use strict';
 
 // The module to be exported
-var helpers = {
+Var helpers = {
   foo: function () {
     return 'foo';
   },
@@ -257,7 +271,7 @@ var helpers = {
 module.exports.register = function (Handlebars, options) {
   options = options || {};
 
-  for (var helper in helpers) {
+  for (Var helper in helpers) {
     if (helpers.hasOwnProperty(helper)) {
       Handlebars.registerHelper(helper, helpers[helper]);
     }
@@ -284,7 +298,7 @@ options: {
  */
 'use strict';
 
-var marked = require('marked');
+Var marked = require('marked');
 
 // Export helpers
 module.exports.register = function (Handlebars, options) {
@@ -472,37 +486,38 @@ module.exports = function(grunt) {
 
 =======
 
-## Other interresting projects 
+## Other interesting projects 
 
 * To precompile Handlebars templates to JST file use [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars)
-* Static site generator for Grunt.js, Yeoman and Node.js. [Assemble](http://assemble.io)
+* Static site generators for Grunt.js, Yeoman and Node.js. [Assemble](http://assemble.io)
 * This task renders Dust templates against a context to produce HTML. [grunt-dust-html](https://github.com/ehynds/grunt-dust-html) 
 * Handlebars helpers which implement Jade-like layout blocks for Node project [handlebars-layouts](https://github.com/shannonmoeller/handlebars-layouts)
 * Library of 100+ handlebars helpers. [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
-* Gulp-Dust Precompile Dust templates [Gulp-Dust](https://github.com/sindresorhus/gulp-dust)
+* Gulp-Dust Precompiles Dust templates [Gulp-Dust](https://github.com/sindresorhus/gulp-dust)
 
 ## Release History and Roadmap
 
- * 2016-01-05   v0.2.5   Parse object in context. bugfix (thanks [neagle](https://github.com/neagle))
- * 2016-01-05   v0.2.4   bugfix (thanks [giuseppepaul](https://github.com/giuseppepaul))
- * 2015-01-21   v0.2.1   context can loaded as files (exemple_2)
+ * 2016-06-19   v0.2.7   Add new Var \_\_filename (the src file name)
+ * 2016-01-05   v0.2.5   Parse object in context. bug fix (thanks [neagle](https://github.com/neagle))
+ * 2016-01-05   v0.2.4   bug fix (thanks [giuseppepaul](https://github.com/giuseppepaul))
+ * 2015-01-21   v0.2.1   context can be loaded as files (exemple_2)
  * 2015-01-21   v0.2.0   update code
  * 2015-01-21   v0.2.0b  ready to work with grunt-contrib-connect and  grunt-contrib-watch.
  * 2014-10-08   v0.1.6   windows fix.
- * 2014-10-08   v0.1.4   Add * for files list and unique name for Partials.
+ * 2014-10-08   v0.1.4   Add * for file list and unique name for Partials.
  * 2014-09-05   v0.1.3   Better log error + strict mode.
- * 2014-09-05   v0.1.1   Async optimisation.
+ * 2014-09-05   v0.1.1   Async optimization.
  * 2014-09-03   v0.1.0   First Release.
  * 2014-08-14   v0.0.*   Alpha ans Beta Releases
 
 ## License
 
-Copyright (c) 2014 Thierry Charbonnel, contributors.  
+Copyright © 2014 Thierry Charbonnel, contributors.  
 Released under the MIT license
 
 ## Gulp version. 
 
-Sooooon. 
+Soon. 
 Help is welcome. (contact me)
 
 
