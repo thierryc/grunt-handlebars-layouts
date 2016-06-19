@@ -229,11 +229,11 @@ module.exports.register = function (Handlebars, options)  {
 ```js
 'use strict';
 
-Var crypto = require('crypto'),
+var crypto = require('crypto'),
     fs = require('fs');
 
 // The module to be exported
-Var helpers = {
+var helpers = {
   md5: function (path) {
     var content = fs.readFileSync(path);
     return crypto.createHash('md5').update(content).digest('hex');
@@ -244,7 +244,7 @@ Var helpers = {
 module.exports.register = function (Handlebars, options) {
   options = options || {};
 
-  for (Var helper in helpers) {
+  for (var helper in helpers) {
     if (helpers.hasOwnProperty(helper)) {
       Handlebars.registerHelper(helper, helpers[helper]);
     }
@@ -258,7 +258,7 @@ module.exports.register = function (Handlebars, options) {
 'use strict';
 
 // The module to be exported
-Var helpers = {
+var helpers = {
   foo: function () {
     return 'foo';
   },
@@ -271,7 +271,7 @@ Var helpers = {
 module.exports.register = function (Handlebars, options) {
   options = options || {};
 
-  for (Var helper in helpers) {
+  for (var helper in helpers) {
     if (helpers.hasOwnProperty(helper)) {
       Handlebars.registerHelper(helper, helpers[helper]);
     }
@@ -298,7 +298,7 @@ options: {
  */
 'use strict';
 
-Var marked = require('marked');
+var marked = require('marked');
 
 // Export helpers
 module.exports.register = function (Handlebars, options) {
@@ -497,7 +497,7 @@ module.exports = function(grunt) {
 
 ## Release History and Roadmap
 
- * 2016-06-19   v0.2.7   Add new Var \_\_filename (the src file name)
+ * 2016-06-19   v0.2.7   Add New Varibale \_\_filename (the src file name)
  * 2016-01-05   v0.2.5   Parse object in context. bug fix (thanks [neagle](https://github.com/neagle))
  * 2016-01-05   v0.2.4   bug fix (thanks [giuseppepaul](https://github.com/giuseppepaul))
  * 2015-01-21   v0.2.1   context can be loaded as files (exemple_2)
