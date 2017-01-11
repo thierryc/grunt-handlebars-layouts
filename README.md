@@ -497,6 +497,7 @@ module.exports = function(grunt) {
 
 ## Release History and Roadmap
 
+ * 2017-01-11   v0.3.0   Ready for Handlebars 4.0.5
  * 2016-06-19   v0.2.7   Add New Varibale \_\_filename (the src file name)
  * 2016-01-05   v0.2.5   Parse object in context. bug fix (thanks [neagle](https://github.com/neagle))
  * 2016-01-05   v0.2.4   bug fix (thanks [giuseppepaul](https://github.com/giuseppepaul))
