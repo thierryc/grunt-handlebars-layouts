@@ -1,6 +1,8 @@
 Grunt Handlebars Layouts
 ========================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thierryc/grunt-handlebars-layouts.svg)](https://greenkeeper.io/)
+
 Handlebars helpers which implement Jade-like layout blocks.
 
 * Extend: extend layout (partial)
