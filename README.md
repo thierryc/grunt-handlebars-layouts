@@ -1,6 +1,8 @@
 Grunt Handlebars Layouts
 ========================
 
+[![Maintainers Wanted](https://img.shields.io/badge/maintainers-wanted-red.svg)](https://github.com/pickhardt/maintainers-wanted)
+
 Handlebars helpers which implement Jade-like layout blocks.
 
 * Extend: extend layout (partial)
