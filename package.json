@@ -1,8 +1,7 @@
 {
-
   "name": "grunt-handlebars-layouts",
   "description": "Handlebars task to render Handlebars templates to HTML",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/thierryc/grunt-handlebars-layouts",
   "author": {
     "name": "Thierry Charbonnel",
@@ -39,7 +38,7 @@
     "grunt-contrib-jshint": "0.1.x",
     "grunt-contrib-nodeunit": "0.1.x",
     "marked": "~0.3.2",
-    "moment": "~2.0.0",
+    "moment": "~>2.19.3",
     "handlebars-helper-moment": "*"
   },
   "keywords": [
